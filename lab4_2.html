@@ -1,0 +1,57 @@
+<html>
+<head>
+
+<script type="text/javascript" src="jquery_3.2.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('.button').on('mouseover',function(){
+
+		var w = $(window).width()-50;
+		var h = $(window).height()-50;
+
+		var getRandomInt = function(min,max){
+
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		};
+
+		$(this).animate({
+
+			top: getRandomInt(50, h),
+			left: getRandomInt(50, w)
+
+		},300);
+	});
+});
+
+</script>
+
+<style type="text/css">
+
+.button{
+
+	width: 50px;
+	height: 50px;
+
+	background-color: blue;
+
+	border-radius: 25px;
+
+	position: absolute;
+
+	top: calc(50% - 50px);
+	left: calc(50% - 50px);
+}
+
+</style>
+
+</head>
+<body>
+
+
+<div class="button"></div>
+
+
+</body>
+</html>

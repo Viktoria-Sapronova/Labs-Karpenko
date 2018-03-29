@@ -1,0 +1,262 @@
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script type="text/javascript" src="jquery_3.2.1.min.js"></script>
+<script type="text/javascript">
+
+var answers = {
+
+	1:2,
+	2:1,
+	3:2,
+	4:1,
+	5:1,
+	6:2,
+	7:3,
+	8:2,
+	9:1,
+	10:3,
+	11:3,
+	12:2,
+	13:2,
+	14:1,
+	15:3
+};
+
+var counter = 0;
+
+$(document).ready(function(){
+
+	$('.tests').addClass('active');
+	$('.tests > ul').eq(0).addClass('selected');
+
+	$('.tests > ul:not(.result) > li:not(:first-child)').on('click',function(){
+
+		var index = $(this).index();
+		var question = $(this).parent().index()+1;
+
+		if( answers[question]==index ){
+
+			counter++;
+
+			$('.tests > ul.result > li').eq(1).html( counter+' / '+($('.tests > ul').length-1) );
+		}
+
+		$(this).parent().removeClass('selected');
+		$('.tests > ul').eq(question).addClass('selected');
+	});
+
+	$('.tests > ul.result > li').eq(2).on('click',function(){
+
+		counter = 0;
+
+		$('.tests > ul.result').removeClass('selected');
+		$('.tests > ul').eq(0).addClass('selected');
+	});
+});
+
+</script>
+
+<style type="text/css">
+
+body{
+
+	background-color: #eee;
+}
+
+.tests{
+
+	width: 600px;
+	height: 400px;
+
+	position: absolute;
+
+	top: calc(50% - 250px);
+	left: calc(50% - 300px);
+
+	border: 1px solid #ccc;
+
+	-webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow:    0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+	box-shadow:         0px 0px 8px 0px rgba(0, 0, 0, 0.15);
+
+	background-color: #fff;
+}
+
+.tests:not(.active) > ul:not(:first-child),
+.tests.active > ul:not(.selected){
+
+	display: none;
+}
+
+.tests > ul{
+
+	display: block;
+
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+
+	text-align: center;
+}
+
+.tests > ul > li{
+
+	display: block;
+
+	margin-bottom: 30px;
+}
+
+.tests > ul > li:first-child{
+
+	font-size: 36px;
+
+	padding-top: 50px;
+	padding-bottom: 20px;
+}
+
+.tests > ul.result > li:nth-child(2),
+.tests > ul:not(.result) > li:first-child{
+
+	color: blue;
+}
+
+.tests > ul > li:not(:first-child){
+
+	font-size: 28px;
+	cursor: pointer;
+}
+
+.tests > ul.result > li:last-child:hover,
+.tests > ul:not(.result) > li:not(:first-child):hover{
+
+	color: red;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="tests">
+
+	<ul>
+		<li>Как с греческого переводится слово "космос" κόσμος?</li>
+		<li>Звезда</li>
+		<li>Мир</li>
+		<li>Пространство</li>
+	</ul>
+
+	<ul>
+		<li>Как звали первое животное, выведенное на орбиту Земли?</li>
+		<li>Лайка</li>
+		<li>Белка</li>
+		<li>Звездочка</li>
+	</ul>
+
+	<ul>
+		<li>Первые снимки обратной стороны Луны сделал</li>
+		<li>корабль Аполлон 11 (США), 16 июля 1969</li>
+		<li>корабль Луна-3 (СССР), 4 октября 1959</li>
+		<li>корабль Джотто (ЕС), 2 июля 1985</li>
+	</ul>
+
+	<ul>
+		<li>Кто предложил гелиоцентрическую систему строения солнечной системы?</li>
+		<li>Николай Коперник</li>
+		<li>Галилео Галилей</li>
+		<li>Джордано Бруно</li>
+	</ul>
+
+	<ul>
+		<li>Корабль, на котором полетел Юрий Гагарин назывался</li>
+		<li>Восток</li>
+		<li>Восход</li>
+		<li>Вестник</li>
+	</ul>
+
+	<ul>
+		<li>Где раньше работал глава Объединенной ракетно-космической корпорации Игорь Комаров?</li>
+		<li>"ГАЗПРОМ"</li>
+		<li>"АВТОВАЗ"</li>
+		<li>Уралвагонзавод</li>
+	</ul>
+
+	<ul>
+		<li>Первая открытая и описанная комета была</li>
+		<li>комета Энке</li>
+		<li>комета Галлея</li>
+		<li>комета Фая</li>
+	</ul>
+
+	<ul>
+		<li>Как звали первого американского астронавта?</li>
+		<li>Нил Армстронг</li>
+		<li>Алан Шепард</li>
+		<li>Луи Армстронг</li>
+	</ul>
+
+	<ul>
+		<li>В каких единицах измеряют расстояние между близкими галактиками?</li>
+		<li>мегапарсеки</li>
+		<li>млн. километров</li>
+		<li>календарные года</li>
+	</ul>
+
+	<ul>
+		<li>Как называется наша галактика?</li>
+		<li>Набу</li>
+		<li>Магеланово облако</li>
+		<li>Млечный путь</li>
+	</ul>
+
+	<ul>
+		<li>Кто из этих людей управляет частной космической компанией?</li>
+		<li>Джеймс Кэмерон</li>
+		<li>Сергей Брин</li>
+		<li>Илон Маск</li>
+	</ul>
+
+	<ul>
+		<li>На какую планету направлялись герои фильма "Космическая Одессея 2001"?</li>
+		<li>Сатурн</li>
+		<li>Юпитер</li>
+		<li>Уран</li>
+	</ul>
+
+	<ul>
+		<li>Какая из планет голубого цвета?</li>
+		<li>Плутон</li>
+		<li>Венера</li>
+		<li>Нептун</li>
+	</ul>
+
+	<ul>
+		<li>Какая из планет является крупнейшей в нашей Солнечной системе?</li>
+		<li>Юпитер</li>
+		<li>Сатурн</li>
+		<li>Земля</li>
+	</ul>
+
+	<ul>
+		<li>Какой по счёту планетой от солнца является Земля?</li>
+		<li>Пятой</li>
+		<li>Третей</li>
+		<li>Первой</li>
+	</ul>
+
+	<ul class="result">
+
+		<li>Результат:</li>
+		<li></li>
+		<li>Пройти заново</li>
+	</ul>
+</div>
+
+
+
+</body>
+</html>

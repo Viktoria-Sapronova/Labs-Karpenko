@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8" />
+	<title>Задание 2</title>
+</head>
+<body>
+	<!--    
+    1)	Создайте на странице текстовое поле и кнопку.
+    2)	Создайте произвольное количество элементов на странице с различными уровнями вложенности.
+    3)	Цель: в текстовое поле вводим селектор и нажимаем на кнопку. Элемент, который соответвует селектору, меняет цвет. 
+    -->
+
+    <div style="margin: 10px;">
+	    <form onsubmit="return false;">
+	    	<input type="text" id="tinput" />
+	    	<input type="button" id="tbutton" value="Change color" />
+		</form>
+	</div>
+
+	<div id="main" style="margin: 10px; height: 500px; background-color: #eeeeee">
+		<span>#main</span>
+		<br />
+
+		<div id="sidebar" style="width: 20%; margin: 10px; display: inline-block; height: 300px; background-color: #ccccff">
+			<span>#sidebar</span>
+		</div>
+
+		<div id="content" style="width: 50%; margin: 10px; display: inline-block; height: 450px; background-color: #ffcccc">
+			<span>#content</span>
+		</div>
+
+		<div id="ads" style="width: 10%; margin: 10px; display: inline-block; height: 200px; background-color: #ccffcc">
+			<span>#ads</span>
+		</div>
+
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+
+		$(document).ready(function() {
+
+			$('#tbutton').click(function(e) {
+
+				var selector = $('#tinput').val();
+				var colorR = Math.floor((Math.random() * 256));
+			    var colorG = Math.floor((Math.random() * 256));
+			    var colorB = Math.floor((Math.random() * 256));
+				$(selector).css("background-color", "rgb(" + colorR + "," + colorG + "," + colorB + ")");
+			});
+
+		});
+
+	</script>
+</body>
+</html>

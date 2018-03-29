@@ -1,0 +1,119 @@
+<html>
+<head>
+
+<script type="text/javascript" src="jquery_3.2.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	$('.table > ul > li').hover(function(){
+
+		var index = $(this).index();
+
+		$('.table').find('.selected').removeClass('selected');
+
+		$(this).parent().addClass('selected');
+
+		$('.table > ul').each(function(){
+
+			$(this).children('li').eq(index).addClass('selected');
+		});
+
+	},function(){
+
+		$('.table').find('.selected').removeClass('selected');
+	});
+});
+
+</script>
+
+<style type="text/css">
+
+.table{
+
+	display: table;
+
+	width: 500px;
+	height: 500px;
+
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+
+	position: absolute;
+
+	top: calc(50% - 250px);
+	left: calc(50% - 250px);
+}
+
+.table > ul{
+
+	display: table-row;
+
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+.table > ul > li{
+
+	display: table-cell;
+
+	width: 100px;
+	height: 100px;
+
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+}
+
+.table > ul > li:before{
+
+	content: '';
+
+	display: block;
+
+	margin: 15px;
+
+	width: 70px;
+	height: 70px;
+
+	border-radius: 35px;
+
+	background-color: blue;
+}
+
+.table > ul.selected > li,
+.table > ul:not(.selected) > li.selected{
+
+	background-color: #ffe581;
+}
+
+.table > ul.selected > li.selected{
+
+	background-color: #fc0;
+}
+
+.table > ul.selected > li.selected:before{
+
+	background-color: #000;
+}
+
+</style>
+
+
+
+</head>
+<body>
+
+<div class="table">
+
+	<ul><li></li><li></li><li></li><li></li><li></li></ul>
+	<ul><li></li><li></li><li></li><li></li><li></li></ul>
+	<ul><li></li><li></li><li></li><li></li><li></li></ul>
+	<ul><li></li><li></li><li></li><li></li><li></li></ul>
+	<ul><li></li><li></li><li></li><li></li><li></li></ul>
+</div>
+
+
+</body>
+</html>

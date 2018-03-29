@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Лабораторная работа</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            var arr = [];
+            for(i = 0; i < 9; i++) {
+                var line = [];
+                for(j = 0; j < 9; j++) {
+                    line.push(Math.floor(Math.random() * 100));
+                }
+                arr.push(line);
+            }
+
+            for(i = 1; i < 8; i++) {
+                var sum = 0;
+                for(j = 0; j <= 2 * i; j++) {
+                    if (j != i &&
+                        j < 9 &&
+                        (2 * i - j) < 9) {
+
+                        sum += arr[j][2 * i - j];
+                    }
+                }
+                arr[i][i] = sum;
+            }
+
+            var html = "<table>";
+            for(i = 0; i < 9; i++) {
+                html += "<tr>";
+                for(j = 0; j < 9; j++) {
+                    if(i == j) {
+                        html += "<td><span class=\"red\">" + arr[i][j] + "</span></td>";
+                    } else {
+                        html += "<td>" + arr[i][j] + "</td>";
+                    }
+                }
+                html += "</tr>";
+            }
+            html += "</table>";
+
+            $("#main").html(html);
+        });
+
+    </script>
+    <style>
+        #main {
+            width: 80%;
+            height: 80%;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #main table {
+            background-color: #bdb1c9;
+            padding: 5px;
+        }
+
+        #main table td {
+            margin: 10px;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+
+    </div>
+</body>
+</html>

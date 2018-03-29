@@ -1,0 +1,61 @@
+<html>
+<head>
+
+<script type="text/javascript">
+
+function $(object){
+
+	return {
+
+		css: function(param,value){
+
+			if( object.substring(0,1)=='.' ){
+
+				var elems = document.getElementsByClassName(object);
+			}
+			else if( object.substring(0,1)=='#' ){
+
+				var elems = [ document.getElementById(object) ];
+			}
+			else{
+				var elems = document.getElementsByTagName(object);
+			}
+
+			for( var i=0; i<elems.length; i++ ){
+
+				elems[i].style[param] = value;
+			}
+
+			return $(object);
+		}
+	}
+}
+
+</script>
+
+
+</head>
+<body>
+
+<p>Tag (p)</p>
+
+<div class=".second">Class (.second)</div>
+
+<br/><br/>
+
+<div id="#third">ID (#third)</div>
+
+<br/><br/>
+
+<br/><br/>
+
+
+<input type="button" value="Tag" onclick="$('p').css('color','red').css('fontSize','12px')" /> &nbsp; 
+
+<input type="button" value="Class" onclick="$('.second').css('color','blue').css('fontSize','44px')" /> &nbsp; 
+
+<input type="button" value="ID" onclick="$('#third').css('color','red').css('fontSize','32px')" /> &nbsp; 
+
+
+</body>
+</html>
